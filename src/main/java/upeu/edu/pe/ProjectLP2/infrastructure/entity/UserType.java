@@ -8,6 +8,7 @@ package upeu.edu.pe.ProjectLP2.infrastructure.entity;
  *
  * @author alejandromacedop
  */
-public class UserType {
-    
+
+public enum UserType {
+    ADMIN, USER
 }
