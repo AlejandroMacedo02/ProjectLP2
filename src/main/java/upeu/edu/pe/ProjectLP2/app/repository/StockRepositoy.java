@@ -5,23 +5,24 @@
 package upeu.edu.pe.ProjectLP2.app.repository;
 
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
-import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
+import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
 
 /**
  *
  * @author alejandromacedop
  */
-public interface ProductRepository {
+public interface StockRepositoy {
 
     //LISTA DE TODOS LOS PRODUCTOS
-    Iterable<ProductEntity> getProducts();
+    Iterable<StockEntity> getStocks();
 
     //LISTA DE PRODUCTOS POR USUARIO
-    Iterable<ProductEntity> getProductsByUser(UserEntity user);
+    
+    Iterable<StockEntity> getStocksByProduct(ProductEntity product);
 
-    ProductEntity getProductById(Integer id);
+    StockEntity getStockById(Integer id);
 
-    ProductEntity saveProduct(ProductEntity product);
+    StockEntity saveStock(StockEntity stock);
 
-    void deleteProductById(Integer id);
+    void deleteStockById(Integer id);
 }

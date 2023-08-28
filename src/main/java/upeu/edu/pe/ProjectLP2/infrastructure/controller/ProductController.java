@@ -1,11 +1,12 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package upeu.edu.pe.ProjectLP2.infrastructure.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.slf4j.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +32,15 @@ public class ProductController {
         this.productService = productService;
     }
 
-    //crear nuevo producto
+    //CREAR PRODUCTO
+    
     @GetMapping("/create")
     public String create() {
         return "admin/products/create";
     }
 
-    //guardar producto
+    //GUARDAR PRODUCTO
+    
     @PostMapping("/save-product")
     public String saveProduct(ProductEntity product) {
         log.info("Nombre de producto: {}", product);
@@ -46,6 +49,8 @@ public class ProductController {
         //return "redirect:/admin";
     }
 
+    // MOSTRAR PRODUCTO
+    
     @GetMapping("/show")
     public String showProduct(Model model) {
         //log.info("id user desde la variable de session: {}");
@@ -56,6 +61,8 @@ public class ProductController {
         return "admin/products/show";
     }
 
+    //EDITAR PRODUCTO
+    
     @GetMapping("/edit/{id}")
     public String editProduct(@PathVariable Integer id, Model model) {
         ProductEntity product = productService.getProductById(id);
@@ -64,6 +71,8 @@ public class ProductController {
         return "admin/products/edit";
     }
 
+    // ELIMINAR PRODUCTO
+    
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Integer id) {
         productService.deleteProductById(id);
