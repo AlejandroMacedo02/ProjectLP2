@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.entity;
 
 import jakarta.persistence.Entity;
@@ -101,7 +97,7 @@ public class ProductEntity {
     public LocalDateTime getDateUpdated() {
         return dateUpdated;
     }
-
+    
     public void setDateUpdated(LocalDateTime dateUpdated) {
         this.dateUpdated = dateUpdated;
     }

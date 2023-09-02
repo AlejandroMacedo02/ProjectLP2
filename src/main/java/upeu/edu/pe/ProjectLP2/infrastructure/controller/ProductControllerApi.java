@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.controller;
 
 import org.springframework.http.HttpStatus;
@@ -57,6 +53,7 @@ public class ProductControllerApi {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductEntity editProduct(@RequestBody ProductEntity product, @PathVariable Integer id) {
         ProductEntity productActual = productService.getProductById(id);
+        productActual.setCode(product.getCode());
         productActual.setDescription(product.getDescription());
         productActual.setName(product.getName());
         productActual.setPrice(product.getPrice());
