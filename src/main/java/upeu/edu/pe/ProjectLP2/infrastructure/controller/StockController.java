@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.controller;
 
 import org.slf4j.*;
@@ -20,7 +16,7 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
  * @author alejandromacedop
  */
 @Controller
-@RequestMapping("admin/stocks")
+@RequestMapping("/admin/stocks")
 public class StockController {
     
     private final StockService stockService;
@@ -49,9 +45,9 @@ public class StockController {
     
     @GetMapping("/show")
     public String showStock(Model model){
-        ProductEntity product = new ProductEntity();
-        product.setId(1);
-        Iterable<StockEntity> stocks = stockService.getStocksByProduct(product);
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setId(1);
+        Iterable<StockEntity> stocks = stockService.getStocksByProductEntity(productEntity);
         model.addAttribute("stocks", stocks);
         return "admin/stocks/show";
     }
@@ -59,8 +55,8 @@ public class StockController {
     // EDITAR STOCK
     
     @GetMapping("/edit/{id}")
-    public String editStock(@PathVariable Integer product, Model model){
-        StockEntity stock = stockService.getStocksByProduct(product);
+    public String editStock(ProductEntity productEntity , Model model){
+        StockEntity stock = (StockEntity) stockService.getStocksByProductEntity(productEntity);
         log.info("Stock obtenido: {}", stock);
         model.addAttribute("stock", stock);
         return "admin/stocks/edit";

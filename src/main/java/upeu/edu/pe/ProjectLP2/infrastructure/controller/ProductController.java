@@ -22,7 +22,7 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
  * @author alejandromacedop
  */
 @Controller
-@RequestMapping("admin/products")
+@RequestMapping("/admin/products")
 public class ProductController {
 
     private final ProductService productService;

@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.UUID;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 /**
  *
@@ -20,17 +17,18 @@ public class StockEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String estado;
-    private String imagen;
-    private LocalDateTime fecha_ingreso;
-    private LocalDateTime fecha_vencimiento;
-    private LocalDateTime fecha_actualizacion;
+    private String code;
+    private String description;
+    private String entradas;
+    private String salidas;
+    private String balance;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductEntity ProductEntity;
+    private ProductEntity productEntity;
 
     public StockEntity() {
+        this.setCode(UUID.randomUUID().toString());
     }
 
     public Integer getId() {
@@ -41,61 +39,62 @@ public class StockEntity {
         this.id = id;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getEntradas() {
+        return entradas;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setEntradas(String entradas) {
+        this.entradas = entradas;
     }
 
-    public LocalDateTime getFecha_ingreso() {
-        return fecha_ingreso;
+    public String getSalidas() {
+        return salidas;
     }
 
-    public void setFecha_ingreso(LocalDateTime fecha_ingreso) {
-        this.fecha_ingreso = fecha_ingreso;
+    public void setSalidas(String salidas) {
+        this.salidas = salidas;
     }
 
-    public LocalDateTime getFecha_vencimiento() {
-        return fecha_vencimiento;
+    public String getBalance() {
+        return balance;
     }
 
-    public void setFecha_vencimiento(LocalDateTime fecha_vencimiento) {
-        this.fecha_vencimiento = fecha_vencimiento;
-    }
-
-    public LocalDateTime getFecha_actualizacion() {
-        return fecha_actualizacion;
-    }
-
-    public void setFecha_actualizacion(LocalDateTime fecha_actualizacion) {
-        this.fecha_actualizacion = fecha_actualizacion;
+    public void setBalance(String balance) {
+        this.balance = balance;
     }
 
     public ProductEntity getProductEntity() {
-        return ProductEntity;
+        return productEntity;
     }
 
-    public void setProductEntity(ProductEntity ProductEntity) {
-        this.ProductEntity = ProductEntity;
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+        
     }
-    
-    
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     @Override
     public String toString() {
-        return "StockEntity{" + "id=" + id + ", estado=" + estado + ", imagen=" + imagen + ", fecha_ingreso=" + fecha_ingreso + ", fecha_vencimiento=" + fecha_vencimiento + ", fecha_actualizacion=" + fecha_actualizacion + ", ProductEntity=" + ProductEntity + '}';
+        return "StockEntity{" + "id=" + id + ", code=" + code + ", description=" + description + ", entradas=" + entradas + ", salidas=" + salidas + ", balance=" + balance + ", productEntity=" + productEntity + '}';
     }
+    
 
     
 
+    
 }

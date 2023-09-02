@@ -4,6 +4,7 @@
  */
 package upeu.edu.pe.ProjectLP2.infrastructure.adapter;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
@@ -27,10 +28,10 @@ public class StockRepositoryImpl implements StockRepositoy {
     }
 
     @Override
-    public Iterable<StockEntity> getStocksByProduct(ProductEntity product) {
-        return stockCrudRepository.findByUserEntity(product);
-    }
+    public List<StockEntity> getStockByProductEntity(ProductEntity productEntity) {
+        return stockCrudRepository.getStockByProductEntity(productEntity);
     
+    }
     @Override
     public StockEntity getStockById(Integer id) {
         return stockCrudRepository.findById(id).get();

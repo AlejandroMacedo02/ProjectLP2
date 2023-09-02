@@ -28,5 +28,6 @@ public class BeanConfiguration {
         return new StockService(stockRepository);
 
     }
+   
 }
 

@@ -7,7 +7,7 @@ package upeu.edu.pe.ProjectLP2.app.service;
 import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
-import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
+
 
 
 /**
@@ -26,24 +26,20 @@ public class StockService {
         return stockRepository.getStocks();
     }
     
-    public Iterable<StockEntity> getStocksByProduct(ProductEntity product) {
-        return stockRepository.getStocksByProduct(product);
+    public Iterable<StockEntity> getStocksByProductEntity(ProductEntity productEntity) {
+        return stockRepository.getStockByProductEntity(productEntity);
     }
     
     public StockEntity getStockById(Integer id) {
         return stockRepository.getStockById(id);
     }
     
-    public StockEntity saveStock(StockEntity stock) {
-        return stockRepository.saveStock(stock);
+    public StockEntity saveStock(StockEntity stockEntity) {
+        return stockRepository.saveStock(stockEntity);
     }
     
     public void deleteStockById(Integer id) {
         stockRepository.deleteStockById(id);
-    }
-
-    public StockEntity getStocksByProduct(Integer product) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
