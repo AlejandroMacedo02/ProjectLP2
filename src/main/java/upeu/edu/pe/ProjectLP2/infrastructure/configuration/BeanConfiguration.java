@@ -6,9 +6,11 @@ package upeu.edu.pe.ProjectLP2.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import upeu.edu.pe.ProjectLP2.app.repository.DetailOrderRepository;
 import upeu.edu.pe.ProjectLP2.app.repository.OrderRepository;
 import upeu.edu.pe.ProjectLP2.app.repository.ProductRepository;
 import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
+import upeu.edu.pe.ProjectLP2.app.service.DetailOrderService;
 import upeu.edu.pe.ProjectLP2.app.service.OrderService;
 import upeu.edu.pe.ProjectLP2.app.service.ProductService;
 import upeu.edu.pe.ProjectLP2.app.service.StockService;
@@ -37,4 +39,10 @@ public class BeanConfiguration {
         return new OrderService(orderRepository);
 
     }
+
+    @Bean
+    public DetailOrderService detailOrderService(DetailOrderRepository detailOrderRepository) {
+        return new DetailOrderService(detailOrderRepository);
+    }
+
 }
