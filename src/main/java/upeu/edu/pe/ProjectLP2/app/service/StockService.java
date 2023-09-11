@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package upeu.edu.pe.ProjectLP2.app.service;
 
-import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
+import java.util.List;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
+import upeu.edu.pe.ProjectLP2.app.repository.StockRepository;
 
 
 
@@ -16,9 +14,9 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
  */
 public class StockService {
     
-    private final StockRepositoy stockRepository;
+    private final StockRepository stockRepository;
     
-    public StockService(StockRepositoy stockRepository) {
+    public StockService(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
     
@@ -26,7 +24,7 @@ public class StockService {
         return stockRepository.getStocks();
     }
     
-    public Iterable<StockEntity> getStocksByProductEntity(ProductEntity productEntity) {
+    public List<StockEntity> getStocksByProductEntity(ProductEntity productEntity) {
         return stockRepository.getStockByProductEntity(productEntity);
     }
     

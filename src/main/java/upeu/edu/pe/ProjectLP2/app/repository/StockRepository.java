@@ -9,9 +9,9 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
  *
  * @author alejandromacedop
  */
-public interface StockRepositoy {
+public interface StockRepository {
 
-    //LISTA DE TODOS LOS PRODUCTOS
+    //LISTA DE TODOS LOS STOCCK
     Iterable<StockEntity> getStocks();
 
     //LISTA DE STOCK POR PRODUCTO

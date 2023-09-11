@@ -1,20 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.adapter;
 
 import java.util.List;
 import org.springframework.stereotype.Repository;
-import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
+import upeu.edu.pe.ProjectLP2.app.repository.StockRepository;
 /**
  *
  * @author alejandromacedop
  */
 @Repository
-public class StockRepositoryImpl implements StockRepositoy {
+public class StockRepositoryImpl implements StockRepository {
 
     private final StockCrudRepository stockCrudRepository;
 
@@ -29,7 +25,7 @@ public class StockRepositoryImpl implements StockRepositoy {
 
     @Override
     public List<StockEntity> getStockByProductEntity(ProductEntity productEntity) {
-        return stockCrudRepository.getStockByProductEntity(productEntity);
+        return stockCrudRepository.findStockByProductEntity(productEntity);
     
     }
     @Override

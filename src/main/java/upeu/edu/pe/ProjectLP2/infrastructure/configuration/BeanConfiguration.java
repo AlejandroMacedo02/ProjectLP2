@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package upeu.edu.pe.ProjectLP2.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -9,11 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import upeu.edu.pe.ProjectLP2.app.repository.DetailOrderRepository;
 import upeu.edu.pe.ProjectLP2.app.repository.OrderRepository;
 import upeu.edu.pe.ProjectLP2.app.repository.ProductRepository;
-import upeu.edu.pe.ProjectLP2.app.repository.StockRepositoy;
 import upeu.edu.pe.ProjectLP2.app.service.DetailOrderService;
 import upeu.edu.pe.ProjectLP2.app.service.OrderService;
 import upeu.edu.pe.ProjectLP2.app.service.ProductService;
 import upeu.edu.pe.ProjectLP2.app.service.StockService;
+import upeu.edu.pe.ProjectLP2.app.service.UploadFile;
+import upeu.edu.pe.ProjectLP2.app.repository.StockRepository;
 
 /**
  *
@@ -23,13 +20,13 @@ import upeu.edu.pe.ProjectLP2.app.service.StockService;
 public class BeanConfiguration {
 
     @Bean
-    public ProductService productService(ProductRepository productRepository) {
-        return new ProductService(productRepository);
+    public ProductService productService(ProductRepository productRepository, UploadFile uploadFile) {
+        return new ProductService(productRepository, uploadFile);
 
     }
-
+    
     @Bean
-    public StockService stockService(StockRepositoy stockRepository) {
+    public StockService stockService(StockRepository stockRepository) {
         return new StockService(stockRepository);
 
     }
@@ -43,6 +40,11 @@ public class BeanConfiguration {
     @Bean
     public DetailOrderService detailOrderService(DetailOrderRepository detailOrderRepository) {
         return new DetailOrderService(detailOrderRepository);
+    }
+
+    @Bean
+    public UploadFile uploadFile() {
+        return new UploadFile();
     }
 
 }
