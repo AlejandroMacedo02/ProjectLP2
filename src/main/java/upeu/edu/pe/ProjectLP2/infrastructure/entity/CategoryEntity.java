@@ -24,5 +24,9 @@ public class CategoryEntity {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;
+
+    public CategoryEntity() {
+    }
+    
     
 }
