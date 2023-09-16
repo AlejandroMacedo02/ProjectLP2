@@ -27,6 +27,46 @@ public class CategoryEntity {
 
     public CategoryEntity() {
     }
+
+    public CategoryEntity(Integer id, String type, String description, ProductEntity productEntity) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.productEntity = productEntity;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ProductEntity getProductEntity() {
+        return productEntity;
+    }
+
+    public void setProductEntity(ProductEntity productEntity) {
+        this.productEntity = productEntity;
+    }
+    
     
     
 }
