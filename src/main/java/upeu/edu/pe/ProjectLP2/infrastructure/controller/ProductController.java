@@ -1,6 +1,5 @@
 package upeu.edu.pe.ProjectLP2.infrastructure.controller;
 
-
 import java.io.IOException;
 import org.slf4j.*;
 import org.springframework.stereotype.Controller;
@@ -31,24 +30,21 @@ public class ProductController {
     }
 
     //CREAR PRODUCTO
-    
     @GetMapping("/create")
     public String create() {
         return "admin/products/create";
     }
 
     //GUARDAR PRODUCTO
-    
     @PostMapping("/save-product")
     public String saveProduct(ProductEntity product, @RequestParam MultipartFile multipartFile) throws IOException {
-        log.info("Nombre de producto: {}", product,multipartFile );
+        log.info("Nombre de producto: {}", product, multipartFile);
         productService.saveProduct(product, multipartFile);
         return "admin/products/create";
         //return "redirect:/admin";
     }
 
     // MOSTRAR PRODUCTO
-    
     @GetMapping("/show")
     public String showProduct(Model model) {
         //log.info("id user desde la variable de session: {}");
@@ -60,7 +56,6 @@ public class ProductController {
     }
 
     //EDITAR PRODUCTO
-    
     @GetMapping("/edit/{id}")
     public String editProduct(@PathVariable Integer id, Model model) {
         ProductEntity product = productService.getProductById(id);
@@ -70,7 +65,6 @@ public class ProductController {
     }
 
     // ELIMINAR PRODUCTO
-    
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Integer id) {
         productService.deleteProductById(id);

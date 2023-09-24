@@ -19,9 +19,9 @@ public class StockEntity {
     private Integer id;
     private String code;
     private String description;
-    private String entradas;
-    private String salidas;
-    private String balance;
+    private Integer entradas;
+    private Integer salidas;
+    private Integer balance;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -39,6 +39,14 @@ public class StockEntity {
         this.id = id;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -47,27 +55,27 @@ public class StockEntity {
         this.description = description;
     }
 
-    public String getEntradas() {
+    public Integer getEntradas() {
         return entradas;
     }
 
-    public void setEntradas(String entradas) {
+    public void setEntradas(Integer entradas) {
         this.entradas = entradas;
     }
 
-    public String getSalidas() {
+    public Integer getSalidas() {
         return salidas;
     }
 
-    public void setSalidas(String salidas) {
+    public void setSalidas(Integer salidas) {
         this.salidas = salidas;
     }
 
-    public String getBalance() {
+    public Integer getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
@@ -77,24 +85,11 @@ public class StockEntity {
 
     public void setProductEntity(ProductEntity productEntity) {
         this.productEntity = productEntity;
-        
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     @Override
     public String toString() {
         return "StockEntity{" + "id=" + id + ", code=" + code + ", description=" + description + ", entradas=" + entradas + ", salidas=" + salidas + ", balance=" + balance + ", productEntity=" + productEntity + '}';
     }
-    
-
-    
-
     
 }

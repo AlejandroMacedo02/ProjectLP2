@@ -41,6 +41,7 @@ public class BeanConfiguration {
     public DetailOrderService detailOrderService(DetailOrderRepository detailOrderRepository) {
         return new DetailOrderService(detailOrderRepository);
     }
+    
 
     @Bean
     public UploadFile uploadFile() {
