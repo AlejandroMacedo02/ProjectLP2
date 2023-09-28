@@ -1,5 +1,6 @@
 package upeu.edu.pe.ProjectLP2.infrastructure.adapter;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import upeu.edu.pe.ProjectLP2.app.repository.ProductRepository;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
@@ -16,8 +17,6 @@ public class ProductRepositoryImpl implements ProductRepository{
     public ProductRepositoryImpl(ProductCrudRepository productCrudRepository) {
         this.productCrudRepository = productCrudRepository;
     }
-
-    
 
     @Override
     public Iterable<ProductEntity> getProducts() {

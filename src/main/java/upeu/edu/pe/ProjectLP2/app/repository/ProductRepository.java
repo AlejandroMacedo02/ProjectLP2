@@ -1,5 +1,6 @@
 package upeu.edu.pe.ProjectLP2.app.repository;
 
+import java.util.List;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
 
