@@ -12,7 +12,7 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
  * @author alejandromacedop
  */
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/home/admin")
 public class AdminController {
     
     private final ProductService productService;
@@ -24,8 +24,8 @@ public class AdminController {
     
     @GetMapping
     public String home(Model model) {
-        Iterable<ProductEntity> products = productService.getProducts();
-        model.addAttribute("producto", products);
-        return "admin";
+        Iterable<ProductEntity> product = productService.getProducts();
+        model.addAttribute("product", product);
+        return "home/admin";
     }
 }
