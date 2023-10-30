@@ -37,11 +37,17 @@ public class ProductController {
 
     //GUARDAR PRODUCTO
     @PostMapping("/save-product")
-    public String saveProduct(ProductEntity product, @RequestParam MultipartFile multipartFile) throws IOException {
-        log.info("Nombre de producto: {}", product, multipartFile);
+    public String saveProduct(ProductEntity product, @RequestParam("img") MultipartFile multipartFile) throws IOException {
+        log.info("Nombre de producto: {}", product);
         productService.saveProduct(product, multipartFile);
-        return "admin/products/create";
-        //return "redirect:/admin";
+
+        // Agregar un retraso de 1 segundo (1000 milisegundos) antes de redirigir
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/admin";
     }
 
     // MOSTRAR PRODUCTO
@@ -61,14 +67,22 @@ public class ProductController {
         ProductEntity product = productService.getProductById(id);
         log.info("Product obtenido: {}", product);
         model.addAttribute("product", product);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "admin/products/edit";
     }
 
     // ELIMINAR PRODUCTO
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Integer id) {
+
         productService.deleteProductById(id);
-        return "redirect:/admin/products/show";
+
+        //return "redirect:/admin/products/view";
+        return "redirect:/admin";
     }
 
 }

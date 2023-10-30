@@ -1,10 +1,63 @@
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Ecommerce Admin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:insert = "~{admin/template_admin::head_admin}">
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body class="bg-dark-subtle ">
+        <div th:insert = "~{admin/template_admin::header_admin}"></div>
+        <div class="container bg-dark-subtle"><br>
+            <h1>AU Natural Cosmetics</h1>
+            <!--  <a class="btn btn-primary" th:onclick="guardarProducto"> Crear producto </a>-->
+            <a class="btn btn-dark mt-6"  th:href="@{/admin/products/create}"> Crear producto </a>
+            <table class="table table-bordered table-responsive mt-3">
+                <thead>
+                    <tr>
+                        <th class="bg-dark-subtle"scope="col">Nombre</th>
+                        <th class="bg-dark-subtle"scope="col">Descripcion</th>
+                        <th class="bg-dark-subtle"scope="col">Codigo</th>
+                        <th class="bg-dark-subtle"scope="col">Precio</th>
+                        <th class="bg-dark-subtle"scope="col">Editar</th> 
+                        <th class="bg-dark-subtle"scope="col">Eliminar</th> 
+                        <th class="bg-dark-subtle"scope="col">Inventario</th> 
+                    </tr> 
+                </thead>
+                <tbody>
+                    <tr th:each="producto: ${products}">
+                        <td class="bg-dark-subtle" th:text="${producto.name}"></td>
+                        <td class="bg-dark-subtle"th:text="${producto.description}"></td>
+                        <td class="bg-dark-subtle" th:text="${producto.code}"></td>
+                        <td class="bg-dark-subtle" th:text="${producto.price}"></td>
+                        <td class="bg-dark-subtle"> <a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${producto.id}) }">Editar</a></td>
+                        <td class="bg-dark-subtle"> <a class="btn btn-danger" th:onclick="eliminarproducto([[${producto.id}]])">Eliminar</a></td>
+                        <td class="bg-dark-subtle"> <a class="btn btn-primary" th:href="@{/admin/inventario/{id} (id=${producto.id})}">Inventario</a></td></tr>
+                    </tr> 
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+        <div class="footer" th:insert = "~{admin/template_admin::footer_admin}"></div>
+
     </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/metodo.js"></script>
+    <style>
+        .body{
+            position: relative;
+        }
+        .footer{
+            position: absolute;
+            bottom:0px;
+            height: 60px;
+            width: 100%;
+        }
+    </style>
+
 </html>

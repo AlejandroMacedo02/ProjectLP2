@@ -2,6 +2,7 @@ package upeu.edu.pe.ProjectLP2.app.service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import org.slf4j.*;
 import org.springframework.web.multipart.MultipartFile;
 import upeu.edu.pe.ProjectLP2.app.repository.ProductRepository;
@@ -74,4 +75,33 @@ public class ProductService {
     public void deleteProductById(Integer id) {
         productRepository.deleteProductById(id);
     }
+    
+    //PARA EL API
+    
+       public ProductEntity saveProductApi(ProductEntity product) throws IOException{
+        if(product.getId()==null){
+            UserEntity user = new UserEntity();
+            user.setId(1);
+            product.setDateCreated(LocalDateTime.now());
+            product.setDateUpdated(LocalDateTime.now());
+            product.setUserEntity(user);
+            return productRepository.saveProduct(product);
+
+        }else{
+         ProductEntity productDB = productRepository.getProductById(product.getId());
+                 log.info("product: {}",productDB);
+         //sino se carga la imagen toma la que se le guardo al registro
+        
+         product.setCode(productDB.getCode());
+         product.setUserEntity(productDB.getUserEntity());
+         product.setDateCreated(productDB.getDateCreated());
+         product.setDateUpdated(LocalDateTime.now());
+         return productRepository.saveProduct(product);
+        }
+        
+    }
+       
+      public Optional<ProductEntity> get(Integer id){
+          return productRepository.get(id);
+      }
 }

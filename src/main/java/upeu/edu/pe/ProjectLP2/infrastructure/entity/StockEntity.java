@@ -2,7 +2,6 @@ package upeu.edu.pe.ProjectLP2.infrastructure.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import java.util.UUID;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
@@ -17,7 +16,6 @@ public class StockEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String code;
     private String description;
     private Integer entradas;
     private Integer salidas;
@@ -28,7 +26,7 @@ public class StockEntity {
     private ProductEntity productEntity;
 
     public StockEntity() {
-        this.setCode(UUID.randomUUID().toString());
+       
     }
 
     public Integer getId() {
@@ -37,14 +35,6 @@ public class StockEntity {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getDescription() {
@@ -89,7 +79,9 @@ public class StockEntity {
 
     @Override
     public String toString() {
-        return "StockEntity{" + "id=" + id + ", code=" + code + ", description=" + description + ", entradas=" + entradas + ", salidas=" + salidas + ", balance=" + balance + ", productEntity=" + productEntity + '}';
+        return "StockEntity{" + "id=" + id + ", description=" + description + ", entradas=" + entradas + ", salidas=" + salidas + ", balance=" + balance + ", productEntity=" + productEntity + '}';
     }
+
+    
     
 }

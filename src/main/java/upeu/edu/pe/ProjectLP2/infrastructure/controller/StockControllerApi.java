@@ -18,8 +18,9 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
  *
  * @author alejandromacedop
  */
+
 @RestController
-@RequestMapping("/api/v1/stock/")
+@RequestMapping("/api/v1/stock")
 public class StockControllerApi {
 
     private final StockService stockService;
@@ -39,7 +40,7 @@ public class StockControllerApi {
     public Iterable<StockEntity> showStock() {
         ProductEntity product = new ProductEntity();
         product.setId(1);
-        return stockService.getStocksByProductEntity(product);
+        return stockService.getStocksByProduct(product);
     }
 
     //buscar stock por ID

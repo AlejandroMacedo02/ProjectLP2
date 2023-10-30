@@ -49,7 +49,7 @@ public class OrderControllerApi {
     }
 
     //editar una orden
-    @PutMapping("/edit/{id}")
+    /*@PutMapping("/edit/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public OrderEntity editProduct(@RequestBody OrderEntity order, @PathVariable Integer id) {
         OrderEntity orderActual = orderService.getOrderById(id);
@@ -71,5 +71,5 @@ public class OrderControllerApi {
     public void deleteOrder(@PathVariable Integer id) {
         orderService.deleteOrderById(id);
         // return "redirect:/admin/products/show";
-    }
+    }*/
 }

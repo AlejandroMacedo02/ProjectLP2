@@ -1,6 +1,7 @@
 package upeu.edu.pe.ProjectLP2.app.repository;
 
 import java.util.List;
+import java.util.Optional;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
 
@@ -17,6 +18,8 @@ public interface ProductRepository {
     Iterable<ProductEntity> getProductsByUser(UserEntity user);
 
     ProductEntity getProductById(Integer id);
+    
+    Optional<ProductEntity> get(Integer id);
 
     ProductEntity saveProduct(ProductEntity product);
 

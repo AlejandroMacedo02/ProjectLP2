@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  *
@@ -22,10 +20,10 @@ public class DetailOrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String code;
-    private Integer cantidadProducto;
-    private BigDecimal precioUnitario;
-    private BigDecimal total;
+    private String nombre;
+    private double cantidad;
+    private double precio;
+    private double total;
     
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -36,7 +34,16 @@ public class DetailOrderEntity {
     private OrderEntity orderEntity;
 
     public DetailOrderEntity() {
-        this.setCode(UUID.randomUUID().toString());
+    }
+
+    public DetailOrderEntity(Integer id, String nombre, double cantidad, double precio, double total, ProductEntity productEntity, OrderEntity orderEntity) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.total = total;
+        this.productEntity = productEntity;
+        this.orderEntity = orderEntity;
     }
 
     public Integer getId() {
@@ -47,35 +54,35 @@ public class DetailOrderEntity {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Integer getCantidadProducto() {
-        return cantidadProducto;
+    public double getCantidad() {
+        return cantidad;
     }
 
-    public void setCantidadProducto(Integer cantidadProducto) {
-        this.cantidadProducto = cantidadProducto;
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public BigDecimal getPrecioUnitario() {
-        return precioUnitario;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioUnitario(BigDecimal precioUnitario) {
-        this.precioUnitario = precioUnitario;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public BigDecimal getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
@@ -97,8 +104,10 @@ public class DetailOrderEntity {
 
     @Override
     public String toString() {
-        return "DetailOrderEntity{" + "id=" + id + ", code=" + code + ", cantidadProducto=" + cantidadProducto + ", precioUnitario=" + precioUnitario + ", total=" + total + ", productEntity=" + productEntity + ", orderEntity=" + orderEntity + '}';
+        return "DetailOrderEntity{" + "id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", total=" + total + ", productEntity=" + productEntity + ", orderEntity=" + orderEntity + '}';
     }
+
+    
     
     
 }

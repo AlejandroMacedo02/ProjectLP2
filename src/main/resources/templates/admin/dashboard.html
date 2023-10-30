@@ -1,0 +1,122 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head_ad">
+        <title>AU Natural Cosmetics</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap -->
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+    <nav class="navbar navbar-expand-xxl bg-dark ">
+        <div class="col-md-6 text-center">
+            <img th:src="@{/images/logo.png}" alt="Logo" width="300" height="300" class="product-image mx-auto">
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" th:href="@{/dashboard}"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/home}"></a>
+            </li>
+            <div class="container-xxl">
+                <h1 class="navbar-expand-xxl text-white mb-0 h1 text-start" th:href="@{/admin/login}">AU Natural Cosmetics</h1>
+            </div>
+
+        </ul>
+
+    </nav>
+    <body>
+    <body>
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+
+                <li class="text-center"><a th:href="@{/admin/usuarios}">Usuarios</a></li>
+                <li class="text-center"><a th:href="@{/admin}">Productos</a></li>
+                <li class="text-center"><a th:href="@{/dashboard}">Salir</a></li>
+
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Bienvenido</h2>
+            <p>Bienvenido al dashboard de administrador, <span th:text="${username}"></span>. Aquí puedes gestionar usuarios y ver productos</p>
+        </div>
+
+
+    </body>
+
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <p class="text-lg-center text-dark mt-auto">Copyright &copy; Alejandrompr 2023</p>
+    
+    
+
+</body>
+
+
+<div th:fragment="footer_ad">
+    
+    
+
+    <style>
+        /* Estilos CSS personalizados para el pie de página */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: left;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #333;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background: #555;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+</div>

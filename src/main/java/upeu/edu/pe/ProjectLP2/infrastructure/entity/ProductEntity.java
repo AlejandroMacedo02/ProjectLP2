@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
  
@@ -25,7 +24,7 @@ public class ProductEntity {
     private String name;
     private String description;
     private String image;
-    private BigDecimal price;
+    private double  price;
     
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -33,9 +32,21 @@ public class ProductEntity {
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;
     
-
+    
     public ProductEntity() {
         this.setCode(UUID.randomUUID().toString());
+    }
+
+    public ProductEntity(Integer id, String code, String name, String description, String image, double price, UserEntity userEntity, LocalDateTime dateCreated, LocalDateTime dateUpdated) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.userEntity = userEntity;
+        this.dateCreated = dateCreated;
+        this.dateUpdated = dateUpdated;
     }
 
     public Integer getId() {
@@ -78,12 +89,20 @@ public class ProductEntity {
         this.image = image;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     public LocalDateTime getDateCreated() {
@@ -97,25 +116,16 @@ public class ProductEntity {
     public LocalDateTime getDateUpdated() {
         return dateUpdated;
     }
-    
+
     public void setDateUpdated(LocalDateTime dateUpdated) {
         this.dateUpdated = dateUpdated;
-    }
-
-    public UserEntity getUserEntity() {
-        return userEntity;
-    }
-
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
     }
 
     @Override
     public String toString() {
         return "ProductEntity{" + "id=" + id + ", code=" + code + ", name=" + name + ", description=" + description + ", image=" + image + ", price=" + price + ", userEntity=" + userEntity + ", dateCreated=" + dateCreated + ", dateUpdated=" + dateUpdated + '}';
     }
-    
-    
+
     
     
 }

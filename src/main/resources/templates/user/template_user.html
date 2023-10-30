@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <title>Ecommerce</title>
@@ -8,39 +7,41 @@
         <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
     </head>
-    <body class="body ">
+    <body class="body">
     <div th:fragment="header">
-        <nav class="navbar navbar-expand-lg bg-warning">
+        <nav class="navbar navbar-expand-xxl bg-dark">
+            <div class="col-md-6 text-center">
+    <img th:src="@{/images/logo.png}" alt="Logo" width="130" height="130" class="product-image mx-auto">
+    </div>
             <div class="container-fluid">
-                <a class="navbar-brand " href="#">Home</a>
+                <a class="navbar-brand text-white" th:href="@{/home}">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Carrito</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+            </div>
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" th:href="@{/admin/login}">Administrador</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
             </div>
         </nav>
     </div>
     </body>
     <div th:fragment="footer">
-        <footer class="footer bg-warning">
+        <footer class="footer py-4 bg-dark">
             <p class="text-center text-white">Copyright &copy; Alejandrompr 2023</p>
             <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
         </footer>
     </div>
+    <style>
+    .dropdown-menu {
+            margin-left: -20px; /* Ajusta el margen izquierdo según tu preferencia */
+        }
 
-
+        .nav-link {
+            display: inline-block;
+        }
+   </style>
 </html>

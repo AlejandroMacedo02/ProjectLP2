@@ -49,7 +49,7 @@ public class DetailOrderControllerApi {
     }
     
     //editar una orden
-    @PutMapping("/edit/{id}")
+    /*@PutMapping("/edit/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public DetailOrderEntity editDetailOrder(@RequestBody DetailOrderEntity detailorder, @PathVariable Integer id) {
         DetailOrderEntity detailOrderActual = detailOrderService.getDetailOrderById(id);
@@ -62,7 +62,7 @@ public class DetailOrderControllerApi {
         // log.info("Product obtenido: {}", product);
         //model.addAttribute("product", product);
         //return "admin/products/edit";
-    }
+    }*/
 
     //eliminar una orden
     @DeleteMapping("/delete/{id}")

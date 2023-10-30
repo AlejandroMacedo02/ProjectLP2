@@ -8,8 +8,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import java.util.UUID;
-
+import java.util.Date;
 /**
  *
  * @author alejandromacedop
@@ -21,13 +20,10 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String code;
-    private String desciption;
-    private String total;
-    private String metodo_pago;
-    private String direccion_envio;
-    private String detalles_pago;
-    private String envio;
+    private String numero;
+    private Date fechaCreacion;
+    private Date fechaRecibida;
+    private double total;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -36,7 +32,18 @@ public class OrderEntity {
     private LocalDateTime dateUpdated;
 
     public OrderEntity() {
-        this.setCode(UUID.randomUUID().toString());
+        
+    }
+
+    public OrderEntity(Integer id, String numero, Date fechaCreacion, Date fechaRecibida, double total, UserEntity userEntity, LocalDateTime dateCreated, LocalDateTime dateUpdated) {
+        this.id = id;
+        this.numero = numero;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaRecibida = fechaRecibida;
+        this.total = total;
+        this.userEntity = userEntity;
+        this.dateCreated = dateCreated;
+        this.dateUpdated = dateUpdated;
     }
 
     public Integer getId() {
@@ -47,60 +54,36 @@ public class OrderEntity {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getDesciption() {
-        return desciption;
+    public Date getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setDesciption(String desciption) {
-        this.desciption = desciption;
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public String getTotal() {
+    public Date getFechaRecibida() {
+        return fechaRecibida;
+    }
+
+    public void setFechaRecibida(Date fechaRecibida) {
+        this.fechaRecibida = fechaRecibida;
+    }
+
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(double total) {
         this.total = total;
-    }
-
-    public String getMetodo_pago() {
-        return metodo_pago;
-    }
-
-    public void setMetodo_pago(String metodo_pago) {
-        this.metodo_pago = metodo_pago;
-    }
-
-    public String getDireccion_envio() {
-        return direccion_envio;
-    }
-
-    public void setDireccion_envio(String direccion_envio) {
-        this.direccion_envio = direccion_envio;
-    }
-
-    public String getDetalles_pago() {
-        return detalles_pago;
-    }
-
-    public void setDetalles_pago(String detalles_pago) {
-        this.detalles_pago = detalles_pago;
-    }
-
-    public String getEnvio() {
-        return envio;
-    }
-
-    public void setEnvio(String envio) {
-        this.envio = envio;
     }
 
     public UserEntity getUserEntity() {
@@ -129,7 +112,8 @@ public class OrderEntity {
 
     @Override
     public String toString() {
-        return "OrderEntity{" + "id=" + id + ", code=" + code + ", desciption=" + desciption + ", total=" + total + ", metodo_pago=" + metodo_pago + ", direccion_envio=" + direccion_envio + ", detalles_pago=" + detalles_pago + ", envio=" + envio + ", userEntity=" + userEntity + ", dateCreated=" + dateCreated + ", dateUpdated=" + dateUpdated + '}';
+        return "OrderEntity{" + "id=" + id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaRecibida=" + fechaRecibida + ", total=" + total + ", userEntity=" + userEntity + ", dateCreated=" + dateCreated + ", dateUpdated=" + dateUpdated + '}';
     }
 
+    
 }

@@ -1,0 +1,114 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head_d">
+        <title>AU Natural Cosmetics</title>
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap -->
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+    <nav class="navbar navbar-expand-xxl bg-dark ">
+        <div class="col-md-6 text-center">
+            <img th:src="@{/images/logo.png}" alt="Logo" width="150" height="150" class="product-image mx-auto">
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" th:href="@{/dashboard}"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/home}"></a>
+            </li>
+            <form class="d-flex">
+                <a class="btn btn-success" href="/admin/login">Acceder al Administrador</a>
+            </form>
+            <li class="nav-item">
+                <a class=" text-dark" href="#">Linkzzzzzzzzzzzzzzzzzzzzzzz</a> <br>
+            </li>
+            
+             <form class="d-flex">
+                <a class="btn btn-light" href="/usuario/login">Login</a>
+            </form>
+        </ul>
+
+    </nav>
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img th:src="@{/images/1-min.jpg}" width="400" height="400" alt="Lipstick" class="product-image">
+                </div>
+                <div class="col-md-6">
+                    <h1>Lip Lovely</h1>
+                    <p>Hidratación perfecta con más volumen en labios y zona naso geniana.</p>
+                    <p>Price: $25.00</p>
+                    
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h2>Detalles del Lip Lovely</h2>
+                <ul>
+                    <li>Fórmula ligera</li>
+                    <li>Brillante (no pegajosa)</li>
+                    <li>Larga duración</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img th:src="@{/images/3-min.jpg}" width="400" height="400" alt="Lipstick" class="product-image">
+                </div>
+                <div class="col-md-6">
+                    <h1>Liplush</h1>
+                    <p>Perfilador y color en un solo lápiz con textura cera</p>
+                    <p>Price: $26.00</p>
+                   
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h2>Detalles del Liplush</h2>
+                <ul>
+                    <li>Fórmula ligera</li>
+                    <li>Brillante (no pegajosa)</li>
+                    <li>Larga duración</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mt-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <img th:src="@{/images/2-min.jpg}" width="400" height="400" alt="Lipstick" class="product-image">
+                </div>
+                <div class="col-md-6">
+                    <h1>JuicyLips</h1>
+                    <p>Hidrata y mejora la textura de los labios, deja un aspecto suave y con volumen natural</p>
+                    <p>Price: $28.00</p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <h2>Detalles del JuicyLips</h2>
+                <ul>
+                    <li>Fórmula ligera</li>
+                    <li>Brillante (no pegajosa)</li>
+                    <li>Larga duración</li>
+                </ul>
+            </div>
+        </div>
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+    </body>
+
+
+    <div th:fragment="footer_d">
+        <footer class="footer py-4 bg-dark mb-6">
+            <p class="text-center text-white">Copyright &copy; Alejandrompr 2023</p>
+            <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        </footer>
+        <style>
+            
+        </style>
+    </div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{admin/template_admin::head_admin}">
+    <title>Inventario</title>
+</head>
+<body class="bg-dark-subtle ">
+        <div th:insert = "~{admin/template_admin::header_admin}"></div>
+        <div class="container bg-dark-subtle"><br>
+            <h1 class="text-center">Rellenar Inventario</h1>
+       <table class="table table-bordered table-responsive">
+                <thead>
+                <th class="bg-dark-subtle "scope="col">Descripción</th>
+                <th class="bg-dark-subtle"scope="col">Entradas</th>	
+                <th class="bg-dark-subtle"scope="col">Salidas</th>	
+                <th class="bg-dark-subtle"scope="col">Balance</th>
+                <th class="bg-dark-subtle"scope="col">Editar</th> 
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="stock:${stocks}">
+                        <td class="bg-dark-subtle" th:text = "${stock.description}"></td>
+                        <td class="bg-dark-subtle" th:text = "${stock.entradas}"></td>
+                        <td class="bg-dark-subtle" th:text = "${stock.salidas}"></td>
+                        <td class="bg-dark-subtle" th:text = "${stock.balance}"></td>
+                        <td class="bg-dark-subtle">  <a class="btn btn-success" th:href="@{/admin/stocks/edit/{id} (id=${stock.id})}">Añadir Unidades</a></td>
+                                    
+                    </tr>       
+                </tbody>
+            </table>
+    </div>
+
+    <div class="footer" th:insert="~{admin/template_admin::footer_admin}"></div>
+</body>
+<style>
+    .body {
+        position: relative;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0px;
+        height: 60px;
+        width: 100%;
+    }
+</style>
+</html>

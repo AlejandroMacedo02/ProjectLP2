@@ -11,6 +11,8 @@ import upeu.edu.pe.ProjectLP2.app.service.ProductService;
 import upeu.edu.pe.ProjectLP2.app.service.StockService;
 import upeu.edu.pe.ProjectLP2.app.service.UploadFile;
 import upeu.edu.pe.ProjectLP2.app.repository.StockRepository;
+import upeu.edu.pe.ProjectLP2.app.repository.UserRepository;
+import upeu.edu.pe.ProjectLP2.app.service.UserService;
 
 /**
  *
@@ -42,7 +44,11 @@ public class BeanConfiguration {
         return new DetailOrderService(detailOrderRepository);
     }
     
-
+    @Bean
+    public UserService userService(UserRepository userRepository){
+        return new UserService(userRepository);
+    }
+    
     @Bean
     public UploadFile uploadFile() {
         return new UploadFile();
