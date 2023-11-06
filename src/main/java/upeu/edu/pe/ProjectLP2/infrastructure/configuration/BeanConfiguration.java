@@ -53,5 +53,7 @@ public class BeanConfiguration {
     public UploadFile uploadFile() {
         return new UploadFile();
     }
+    
+    
 
 }

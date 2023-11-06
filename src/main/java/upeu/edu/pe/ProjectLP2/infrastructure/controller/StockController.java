@@ -28,6 +28,9 @@ public class StockController {
     }
     
     // CREAR STOCK
+    
+    
+    
     @GetMapping("/create")
     public String create(){
         return "admin/products/createinv";

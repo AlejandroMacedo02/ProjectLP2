@@ -2,6 +2,7 @@ package upeu.edu.pe.ProjectLP2.infrastructure.controller;
 
 
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import upeu.edu.pe.ProjectLP2.app.service.DetailOrderService;
 import upeu.edu.pe.ProjectLP2.app.service.ProductService;
 import upeu.edu.pe.ProjectLP2.app.service.StockService;
@@ -21,6 +23,7 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.DetailOrderEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.OrderEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.ProductEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.StockEntity;
+import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
 
 /**
  *
@@ -50,7 +53,6 @@ public class HomeController {
     }
 
     
-
     @GetMapping
     public String home(Model model){
         
@@ -111,6 +113,18 @@ public class HomeController {
 
         return "user/cart";
     } 
+    
+    /*@GetMapping("/cart/{id}")
+    public String showCarrito(@PathVariable Integer id, Model model) {
+        ProductEntity pro = productService.getProductById(id);
+        log.info("Product para el carrito: {}", pro);
+        model.addAttribute("pro", pro);
+        
+        
+
+        return "user/cart";
+    }
+    
     
     /*@GetMapping("/cart/{id}")
     public String addcarrito(@PathVariable Integer id, Model model){

@@ -35,10 +35,11 @@ public class UserEntity {
   private String address;
   private String cellphone;
   private String password;
+  private LocalDateTime dateCreated;
   @Enumerated(EnumType.STRING)
   private UserType userType;
   
-  private LocalDateTime dateCreated;
+  
 
 
   

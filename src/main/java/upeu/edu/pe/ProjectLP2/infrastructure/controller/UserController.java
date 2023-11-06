@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import upeu.edu.pe.ProjectLP2.app.repository.UserRepository;
+import upeu.edu.pe.ProjectLP2.app.service.EmailService;
+
 import upeu.edu.pe.ProjectLP2.app.service.UserService;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
 import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserType;
@@ -27,12 +29,18 @@ public class UserController {
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final UserRepository userRepository;
+    private final EmailService emailService;
     private final UserService userService;
 
-    public UserController(UserRepository userRepository, UserService userService) {
+    public UserController(UserRepository userRepository, EmailService emailService, UserService userService) {
         this.userRepository = userRepository;
+        this.emailService = emailService;
         this.userService = userService;
     }
+
+    
+
+ 
 
     // /usuario/registro
     @GetMapping("/registro")
@@ -89,12 +97,15 @@ public class UserController {
     @PostMapping("/save-usuario")
     public String saveProduct(UserEntity usuario) {
         userService.save(usuario);
+        // Enviar correo electrónico al usuario
+        String to = usuario.getEmail();
+        String subject = "Correo Creado Exitosamente";
+        logger.info("correo enviado: {}", usuario);
+        String message = "¡Tu cuenta de usuario ha sido creada exitosamente! Verifica tu correo aquí: https://tudominio.com/verificacion";
+        emailService.sendEmail(to, subject, message);
+        logger.info("correo enviado: {}", message);
         // Agregar un retraso de 1 segundo (1000 milisegundos) antes de redirigir
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "redirect:/admin/usuarios";
+
+        return "redirect:/user/login";
     }
 }

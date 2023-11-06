@@ -4,6 +4,7 @@
  */
 package upeu.edu.pe.ProjectLP2.app.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import upeu.edu.pe.ProjectLP2.app.repository.UserRepository;
@@ -14,51 +15,50 @@ import upeu.edu.pe.ProjectLP2.infrastructure.entity.UserEntity;
  * @author alejandromacedop
  */
 public class UserService {
-    
+
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    
-   
-    public Iterable<UserEntity> getUserEntity(){
+
+    public Iterable<UserEntity> getUserEntity() {
         return userRepository.getUserEntity();
     }
-    public List<UserEntity> findAll(){
+
+    public List<UserEntity> findAll() {
         return userRepository.findAll();
     }
-    
-    public Optional<UserEntity> findById(Integer id){
+
+    public Optional<UserEntity> findById(Integer id) {
         return userRepository.findById(id);
     }
-    
-    public UserEntity getUserById(Integer id){
+
+    public UserEntity getUserById(Integer id) {
         return userRepository.getUserById(id);
     }
-    
-    public UserEntity save(UserEntity usuario){
+
+    public UserEntity save(UserEntity usuario) {
         if (usuario.getId() == null) {
-           
-            
-        return userRepository.save(usuario);
-    }else{
-         UserEntity userDB = userRepository.getUserById(usuario.getId());
-                
-         //sino se carga la imagen toma la que se le guardo al registro
-        
-         usuario.setUserType(userDB.getUserType());
-         usuario.setUsername(userDB.getUsername());
-         
-        return userRepository.save(usuario);
+            usuario.setDateCreated(LocalDateTime.now());
+
+            return userRepository.save(usuario);
+        } else {
+            UserEntity userDB = userRepository.getUserById(usuario.getId());
+
+            //sino se carga la imagen toma la que se le guardo al registro
+            usuario.setUserType(userDB.getUserType());
+            usuario.setUsername(userDB.getUsername());
+            usuario.setDateCreated(userDB.getDateCreated());
+            return userRepository.save(usuario);
+        }
     }
-    }
-    
-    public void deleteUserById(Integer id){
+
+    public void deleteUserById(Integer id) {
         userRepository.deleteUserById(id);
     }
 
-    public Optional<UserEntity> findByEmail(String email){
+    public Optional<UserEntity> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }

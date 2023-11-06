@@ -30,7 +30,7 @@
                         <td class="bg-dark-subtle" th:text="${producto.code}"></td>
                         <td class="bg-dark-subtle" th:text="${producto.price}"></td>
                         <td class="bg-dark-subtle"> <a class="btn btn-warning" th:href="@{/admin/products/edit/{id} (id = ${producto.id}) }">Editar</a></td>
-                        <td class="bg-dark-subtle"> <a class="btn btn-danger" th:onclick="eliminarproducto([[${producto.id}]])">Eliminar</a></td>
+                        <td class="bg-dark-subtle"> <a class="btn btn-danger" th:onclick="eliminarre([[${producto.id}]])">Eliminar</a></td>
                         <td class="bg-dark-subtle"> <a class="btn btn-primary" th:href="@{/admin/inventario/{id} (id=${producto.id})}">Inventario</a></td></tr>
                     </tr> 
                 </tbody>
